@@ -2,7 +2,7 @@ package cz.acamar.tasks;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Task2Tests {
 
@@ -22,6 +22,12 @@ public class Task2Tests {
         int[] expected = new int[]{4, 9, 9, 49, 121};
 
         assertArrayEquals(expected, task2.squaresOfSortedArray(input));
+    }
+
+    @Test
+    void test_case3() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> task2.squaresOfSortedArray(null));
+        assertEquals("Input array is null", exception.getMessage());
     }
 
 }
